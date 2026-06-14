@@ -19,6 +19,8 @@
 
 > This project lives mostly on the **ESP / ESPHome rail** and talks to the same **Home Assistant** hub as your lights/TV/audio (see [device-control-similarity.md](./device-control-similarity.md)). The remote is essentially a *physical front-end* for the macros defined in [home-assistant-integration.md](./home-assistant-integration.md).
 
+![Unified remote concept — front view with screen, three reusable dials, four RGB automation buttons, push-to-talk and status strip](./assets/concept-01-front-reusable.png)
+
 > **Visual concepts:** see [concept-collection.md](./concept-collection.md) for six rendered build directions (Pocket OLED, Standard TFT, Mixer, Puck, Game grip, Wood) — each with a component cost breakdown, pros/cons, and a feature comparison table.
 
 ---
@@ -37,6 +39,14 @@ HOME
 └─ AUTOMATION ..... Sync TVs | Night Time | Party Time | Cameras On
                     (one-tap HA scripts; ignore Room/Type context)
 ```
+
+On-screen, the menus look like this:
+
+![ROOM menu — Living Room / Bedroom](./assets/concept-03-screen-room-menu.png)
+
+![TYPE menu — RGB Lights / Ceiling Lights (on/off only)](./assets/concept-04-screen-type-menu.png)
+
+![AUTOMATION menu — Sync TVs / Night Time / Party Time / Cameras On with matching backlit buttons](./assets/concept-05-screen-automation-menu.png)
 
 ### How "reusable" works
 
@@ -62,6 +72,8 @@ HOME
 Automation is best mapped to **4 dedicated backlit buttons** (instant, glanceable RGB state) rather than buried in a menu—so the reusable dials stay focused on Room/Type adjustment.
 
 ### Recommended control allocation (Solution A)
+
+![Annotated layout — screen, ROOM/TYPE selectors, three reusable encoders, four automation buttons, push-to-talk, status strip, USB-C](./assets/concept-02-annotated-layout.png)
 
 | Physical control | Role |
 |------------------|------|
@@ -291,6 +303,8 @@ HA pushes these to the deck; an on-device automation maps them to the per-zone L
 
 ## Reference BOM — Solution A (rich tactile deck)
 
+![Exploded view — 3D-printed faceplate, display, ESP32-S3 PCB, encoders, WS2812 strip, mic, LiPo, TP4056 charger, bottom shell](./assets/concept-11-exploded-internals.png)
+
 | Part | Qty | Unit $ | Total |
 |------|-----|--------|-------|
 | ESP32‑S3 dev board (PSRAM) | 1 | $10 | $10 |
@@ -361,14 +375,23 @@ WS2812 + INMP441 run on 3V3 (or 5V boost for LED strip; common GND with ESP32)
             USB-C ─► TP4056 ─► LiPo ─► LDO/buck
 ```
 
-### Generated diagrams (in `assets/`)
+### Generated diagrams
 
-| File | Shows |
-|------|-------|
-| `wiring-01-system-overview.png` | Whole-device Fritzing-style overview (all peripherals) |
-| `wiring-02-gpio-pinout.png` | ESP32‑S3 pinout map (visual reference) |
-| `wiring-03-power-subsystem.png` | USB-C → TP4056 → LiPo → 3V3 + ADC divider |
-| `wiring-04-inputs-detail.png` | Encoders + buttons on shared 3V3/GND bus |
+**Whole-device overview** — all peripherals around the ESP32‑S3:
+
+![Wiring overview — ESP32-S3 with encoders, buttons, display, mic, WS2812, TP4056 and LiPo](./assets/wiring-01-system-overview.png)
+
+**GPIO pinout map** (visual reference):
+
+![ESP32-S3 GPIO pinout map by function](./assets/wiring-02-gpio-pinout.png)
+
+**Power subsystem** — USB-C → TP4056 → LiPo → 3V3 with ADC battery divider:
+
+![Power subsystem wiring: USB-C, TP4056 charger, LiPo, 3.3V regulator, battery sense divider](./assets/wiring-03-power-subsystem.png)
+
+**Inputs detail** — encoders + buttons on shared 3V3/GND buses with pull-ups:
+
+![Input wiring detail: three rotary encoders and six buttons on shared power and ground rails](./assets/wiring-04-inputs-detail.png)
 
 > Diagrams are **visual references**; if a pin label differs, the **pin map table above is authoritative** (it avoids strapping/USB/PSRAM pins).
 
