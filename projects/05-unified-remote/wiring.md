@@ -1,9 +1,9 @@
 # Unified Remote — Wiring
 
-> **Authoritative pin map** — generated diagram images may mislabel pins; trust this table for builds.  
+> **Authoritative pin map** — trust this table for builds; wiring images match this map.  
 > UX spec: [docs/domain/unified-remote.md](../../docs/domain/unified-remote.md)
 
-**Hardware change (2026-06-15):** **1× volume encoder** only (GPIO freed vs 3-dial design).
+**Hardware:** **1× volume encoder** + fixed scene buttons + screen-driven soft actions.
 
 ## GPIO pin map (ESP32‑S3‑WROOM‑1)
 
@@ -49,11 +49,9 @@ USB-C → TP4056 → LiPo 3.7V → 3.3V LDO → ESP32-S3
 
 ![System overview](../../assets/wiring-01-system-overview.png)
 
-*Overview may show 3 encoders — build uses **1 volume encoder** per table above.*
-
 ![GPIO pinout reference](../../assets/wiring-02-gpio-pinout.png)
 
 ![Power subsystem](../../assets/wiring-03-power-subsystem.png)
 
-![Inputs — adapt to 1 encoder + button set](../../assets/wiring-04-inputs-detail.png)
+![Inputs — volume encoder and buttons](../../assets/wiring-04-inputs-detail.png)
 

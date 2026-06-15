@@ -37,9 +37,7 @@ IR strips expose **8–20 named swatches**, **5 brightness steps**, and programs
 
 ![TYPE menu — RGB vs Ceiling](../../assets/concept-04-screen-type-menu.png)
 
-![Bedroom RGB context — discrete brightness/hue display](../../assets/concept-16-screen-bedroom-rgb.png)
-
-*Note: older concept art may show analog hue arcs — treat as illustrative; implementation is discrete swatches.*
+![Bedroom RGB context — discrete swatches and brightness 1–5](../../assets/concept-16-screen-bedroom-rgb.png)
 
 ---
 
@@ -57,9 +55,7 @@ On/off and fixture/group selection on **screen** + soft buttons — non-dimmable
 | **ALL ON** | Ceilings on; RGB zone(s) to configured default |
 | **GOODNIGHT** | Ceilings off; RGB off; TVs off; optional Frigate arm |
 
-![AUTOMATION-style screen — prefer ALL ON / GOODNIGHT over Party](../../assets/concept-05-screen-automation-menu.png)
-
-*Regenerate concept art when labels are updated to ALL ON / GOODNIGHT / Sync Screens.*
+![Fixed scene buttons — Sync Screens, ALL ON, GOODNIGHT](../../assets/concept-05-screen-automation-menu.png)
 
 ---
 
