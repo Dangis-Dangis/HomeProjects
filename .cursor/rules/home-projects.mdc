@@ -1,0 +1,18 @@
+---
+description: HomeProjects — root must stay consistent for external readers; read→archive→write from scratch; don't edit archive in place
+alwaysApply: true
+---
+
+# HomeProjects
+
+Household connected-home **documentation repo** (no application code).
+
+**Edit policy:** [docs/agent-guide.md](docs/agent-guide.md) — **read → archive → write from scratch**. Grep the **live** tree when one area changes; update all references or move superseded files to `archive/YYYY-MM-DD-…/`. Root must read as one coherent spec to a first-time visitor.
+
+**Domain:** [docs/domain/rgb-lights.md](docs/domain/rgb-lights.md) · [docs/domain/unified-remote.md](docs/domain/unified-remote.md) · [needs/constraints-and-inventory.md](needs/constraints-and-inventory.md)
+
+**Docs:** [docs/documentation-standards.md](docs/documentation-standards.md) — embed `assets/` images.
+
+**Archive:** append new dated folders when superseding; **do not rewrite old archive** to match new specs unless the user asks.
+
+Skill: [.cursor/skills/home-projects/SKILL.md](.cursor/skills/home-projects/SKILL.md)

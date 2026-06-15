@@ -1,29 +1,50 @@
-# Home Projects — Solution Guides
+# Connected Home Systems
 
-Each guide compares **multiple implementations** for one capability. Constraints reflected across guides:
+A privacy-respecting, **wireless-first**, self-hosted connected home — six capabilities on one shared backbone.
 
-- **Wireless-first** where cabling between rooms is not an option (screen share, HA devices)
-- **iPhone + Android** native apps preferred for photos and daily control
-- **Local storage** for security (2–3 cameras)
-- **Home Assistant** as optional hub for lights, TV, audio, and Cast orchestration
-- **Existing devices honored:** wall-switch (non-dimmable) ceiling lights with physical control retained, 3 IR-only light zones, Vizio **V4K65M-08** + old **Samsung ARC** audio (IR), Vizio **E55-U** + **Chromecast 4K**
+| Doc | Purpose |
+|-----|---------|
+| [needs/constraints-and-inventory.md](./needs/constraints-and-inventory.md) | Goals, existing hardware, hard constraints |
+| [needs/problems.md](./needs/problems.md) | Six problem statements |
+| [architecture/shared-backbone.md](./architecture/shared-backbone.md) | Build-once components reused everywhere |
+| [architecture/control-rails.md](./architecture/control-rails.md) | TVs, lights, and audio → IR / Cast / mains |
+| [portfolio/build-order-and-costs.md](./portfolio/build-order-and-costs.md) | Dependency order, costs, similarity matrix |
 
-| Guide | Topic |
-|-------|--------|
-| [solution-similarity-across-projects.md](./solution-similarity-across-projects.md) | Shared stacks, overlap, unified recommendations |
-| [device-control-similarity.md](./device-control-similarity.md) | Your existing lights/TVs grouped into 3 control "rails" |
-| [personal-media-storage.md](./personal-media-storage.md) | Photos — Immich/Synology, remote mobile apps |
-| [home-security-recording.md](./home-security-recording.md) | 2–3 cameras, local NVR |
-| [home-assistant-integration.md](./home-assistant-integration.md) | Lights (switch + IR), TV, audio; commercial detection |
-| [screen-share-multiple-tvs.md](./screen-share-multiple-tvs.md) | Wireless Cast on your two Vizios, multi-device, remote |
-| [unified-remote.md](./unified-remote.md) | DIY battery handheld control deck (buttons/dials/voice/LEDs) |
-| [concept-collection.md](./concept-collection.md) | 6 rendered remote concepts — cost breakdowns, pros/cons, feature table |
-| [rfid-custom-codes.md](./rfid-custom-codes.md) | Optional: NFC/RFID for scenes (not door focus) |
+**Contributing / AI:** [docs/](./docs/) · [AGENTS.md](./AGENTS.md)
 
-## Fresh suggestions (second pass — scored)
+---
 
-The [fresh-suggestions/](./fresh-suggestions/) directory distills these guides into **opinionated, scored** recommendations (top pick + alternates per project) rated on **cost, setup/maintenance time, feasibility, scalability, and project similarity**, plus a portfolio build order. Start at [fresh-suggestions/README.md](./fresh-suggestions/README.md).
+## Projects
 
-**Assumptions:** You run your own network, can use Tailscale/VLANs, and are comfortable with Docker, Linux, and consumer smart-home gear.
+| # | Project | Recommended | Parts |
+|---|---------|-------------|-------|
+| 1 | [Media & photos](./projects/01-media-storage/) | Immich on N100 + Tailscale | $500–1,100 |
+| 2 | [Security (2–3 cams)](./projects/02-security/) | Frigate on same server + Wi‑Fi RTSP | $150–350 |
+| 3 | [Lights / TV / audio](./projects/03-home-control/) | HA + Caseta + Broadlink + Cast | $350–700 |
+| 4 | [Wireless screen share](./projects/04-screen-share/) | HA + Cast on both Vizios | $35–285 |
+| 5 | [Unified DIY remote](./projects/05-unified-remote/) | ESP32‑S3 ESPHome deck | $45–90 |
+| 6 | [RFID / NFC scenes](./projects/06-rfid-scenes/) | Phone NFC; ESP readers optional | $0–60 |
 
-**Cost notes:** USD, rough 2025–2026 retail; excludes labor and hardware you already own (TVs, phones).
+**Portfolio hardware (fresh build, excl. TVs/phones):** ~**$1,100–2,600**
+
+Each project README is the live spec for that capability. Domain rules for IR RGB and the unified remote: [docs/domain/](./docs/domain/).
+
+---
+
+## Assets
+
+Concept renders and wiring diagrams: [assets/](./assets/) (heroes in `assets/heroes/`).
+
+---
+
+## Archive
+
+Earlier generations (multi-option guides, full proposal dossiers, pre-overhaul remote spec) live under [archive/](./archive/). The repo root is the **current** spec; archive is historical reference only.
+
+| Generation | Date | Contents |
+|------------|------|----------|
+| [v1 exploratory](./archive/2026-05-30-v1-exploratory-guides/) | 2026-05-30 | Multi-option guides |
+| [v2 proposal](./archive/2026-05-31-v2-home-systems-proposal/) | 2026-05-31 | Integrated proposal + dossiers |
+| [v3 remote + assets](./archive/2026-06-14-v3-remote-and-assets/) | 2026-06-14 | Remote deep-dive + 33 PNGs |
+
+Index: [archive/README.md](./archive/README.md).
